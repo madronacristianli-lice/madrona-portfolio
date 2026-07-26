@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristian li G. Madrona | Academic Portfolio</title>
+  <meta name="description" content="Academic portfolio of Cristian li G. Madrona, BSIT 3D Student. Showcasing academic projects, skills, and achievements.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            slate: {
+              50: '#F8FAFC',
+              100: '#F1F5F9',
+              200: '#E2E8F0',
+              300: '#CBD5E1',
+              400: '#94A3B8',
+              500: '#64748B',
+              600: '#475569',
+              700: '#334155',
+              800: '#1E293B',
+              900: '#0F172A',
+            },
+            royal: {
+              50: '#EFF6FF',
+              100: '#DBEAFE',
+              200: '#BFDBFE',
+              300: '#93C5FD',
+              400: '#60A5FA',
+              500: '#3B82F6',
+              600: '#2563EB',
+              700: '#1D4ED8',
+              800: '#1E40AF',
+              900: '#1E3A8A',
+            }
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.6s ease-out forwards',
+            'slide-up': 'slideUp 0.5s ease-out forwards',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' },
+            },
+            slideUp: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .glass {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(226, 232, 240, 0.6);
+    }
+    .dark .glass {
+      background: rgba(30, 41, 59, 0.75);
+      border: 1px solid rgba(51, 65, 85, 0.6);
+    }
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -12px rgba(30, 41, 59, 0.12);
+    }
+    .dark .card-hover:hover {
+      box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.35);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #1E40AF 0%, #2563EB 50%, #3B82F6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.45;
+      z-index: -1;
+      animation: float 8s ease-in-out infinite;
+    }
+    .modal-enter {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    .modal-enter-active {
+      opacity: 1;
+      transform: scale(1);
+      transition: all 0.3s ease-out;
+    }
+    .modal-exit {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .modal-exit-active {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.2s ease-in;
+    }
+    .hide-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .hide-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .skill-pill {
+      transition: all 0.2s ease;
+    }
+    .skill-pill:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-royal-200 selection:text-royal-900 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+  <!-- Decorative Background Blobs -->
+  <div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+    <div class="blob bg-royal-300 dark:bg-royal-700 w-72 h-72 top-20 -left-20"></div>
+    <div class="blob bg-indigo-300 dark:bg-indigo-700 w-96 h-96 top-1/3 right-0 delay-1000"></div>
+    <div class="blob bg-sky-300 dark:bg-sky-700 w-80 h-80 bottom-20 left-1/3 delay-2000"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 md:h-20">
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-2 group">
+          <div class="w-10 h-10 rounded-xl bg-royal-600 text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+            <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+          </div>
+          <div class="hidden sm:block">
+            <span class="font-display font-bold text-lg text-slate-800 dark:text-white">Cristian li</span>
+            <span class="font-display font-semibold text-lg text-royal-600">.Portfolio</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#home" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800 transition-colors">Home</a>
+          <a href="#subjects" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800 transition-colors">Subjects</a>
+          <a href="#projects" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800 transition-colors">Projects</a>
+          <a href="#skills" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800 transition-colors">Skills</a>
+          <a href="#contact" class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:text-white dark:hover:bg-slate-800 transition-colors">Contact</a>
+        </div>
+
+        <!-- Right Actions -->
+        <div class="flex items-center gap-3">
+          <!-- Dark Mode Toggle -->
+          <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-royal-100 dark:hover:bg-slate-700 transition-colors" aria-label="Toggle dark mode">
+            <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+            <i data-lucide="sun" class="w-5 h-5 block dark:hidden"></i>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobile-menu-btn" class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden glass border-t border-slate-200 dark:border-slate-700">
+      <div class="px-4 py-4 space-y-2">
+        <a href="#home" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:bg-slate-800">Home</a>
+        <a href="#subjects" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:bg-slate-800">Subjects</a>
+        <a href="#projects" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:bg-slate-800">Projects</a>
+        <a href="#skills" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:bg-slate-800">Skills</a>
+        <a href="#contact" class="mobile-nav-link block px-4 py-3 rounded-lg text-sm font-medium text-slate-600 hover:text-royal-600 hover:bg-royal-50 dark:text-slate-300 dark:hover:bg-slate-800">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="relative min-h-screen flex items-center pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto w-full">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Left Content -->
+        <div class="order-2 lg:order-1 animate-slide-up">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-royal-100 dark:bg-royal-900/40 text-royal-700 dark:text-royal-300 text-sm font-medium mb-6 border border-royal-200 dark:border-royal-800">
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+            <span>Academic Year 2025 - 2026</span>
+          </div>
+
+          <h1 class="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6">
+            <span class="text-slate-700 dark:text-slate-200">Hello, I'm</span><br>
+            <span class="gradient-text">Cristian li G. Madrona</span>
+          </h1>
+
+          <p class="text-xl sm:text-2xl text-royal-600 dark:text-royal-400 font-display font-semibold mb-4">
+            BSIT - 3D Student
+          </p>
+
+          <p class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed mb-8 max-w-xl">
+            IT Student at the Institute of Computing, Davao del Norte State College - Panabo City, Davao del Norte. This is my showcase of academic projects, achievements, and the skills I've developed throughout my journey.
+          </p>
+
+          <div class="flex flex-wrap gap-4">
+            <a href="#subjects" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-royal-600 text-white font-semibold shadow-lg shadow-royal-600/25 hover:bg-royal-700 hover:shadow-royal-600/40 hover:-translate-y-0.5 transition-all">
+              <span>View My Work</span>
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-semibold border border-slate-200 dark:border-slate-700 hover:border-royal-300 dark:hover:border-royal-700 hover:bg-royal-50 dark:hover:bg-slate-700 transition-all">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>Contact Me</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Visual -->
+        <div class="order-1 lg:order-2 flex justify-center animate-fade-in" style="animation-delay: 0.2s;">
+          <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+            <div class="absolute inset-0 rounded-full bg-gradient-to-br from-royal-400 to-indigo-600 opacity-20 blur-3xl"></div>
+            <div class="relative w-full h-full rounded-3xl glass overflow-hidden shadow-2xl flex items-center justify-center border border-slate-200/60">
+              <div class="text-center p-8">
+                <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-royal-500 to-indigo-600 p-1 shadow-xl">
+                  <img src="Ako%20atay.jpg" alt="Cristian li G. Madrona" class="w-full h-full rounded-full object-cover bg-white dark:bg-slate-800">
+                </div>
+                <h3 class="font-display text-xl font-bold text-slate-800 dark:text-white">Cristian li G. Madrona</h3>
+                <p class="text-slate-500 dark:text-slate-400 mt-2">BSIT 3D</p>
+                <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Institute of Computing</p>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">Davao del Norte State College</p>
+                <div class="mt-4 flex justify-center gap-2">
+                  <span class="px-3 py-1 rounded-full bg-royal-100 dark:bg-royal-900/50 text-royal-700 dark:text-royal-300 text-xs font-medium">Student</span>
+                  <span class="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-xs font-medium">Developer</span>
+                </div>
+              </div>
+            </div>
+            <!-- Floating badges -->
+            <div class="absolute -top-4 -right-4 px-4 py-2 rounded-2xl glass shadow-lg animate-float">
+              <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                <i data-lucide="code-2" class="w-4 h-4 text-royal-600"></i>
+                <span>Web Dev</span>
+              </div>
+            </div>
+            <div class="absolute -bottom-2 -left-6 px-4 py-2 rounded-2xl glass shadow-lg animate-float" style="animation-delay: 1s;">
+              <div class="flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
+                <i data-lucide="shield-check" class="w-4 h-4 text-emerald-600"></i>
+                <span>Cybersecurity</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subjects & Projects Section -->
+  <section id="subjects" class="relative py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-12 animate-slide-up">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-royal-100 dark:bg-royal-900/40 text-royal-700 dark:text-royal-300 text-sm font-semibold mb-4">Academic Portfolio</span>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-4">Subjects & Projects</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-lg">Browse my coursework, projects, and achievements throughout the academic year 2025-2026.</p>
+      </div>
+
+      <!-- Search & Filter Controls -->
+      <div class="glass rounded-2xl p-4 sm:p-6 mb-10 animate-slide-up" style="animation-delay: 0.1s;">
+        <div class="flex flex-col lg:flex-row gap-4 items-stretch lg:items-center justify-between">
+          <!-- Tabs -->
+          <div class="flex flex-wrap gap-2" id="semester-tabs">
+            <button data-filter="all" class="filter-tab active px-5 py-2.5 rounded-xl text-sm font-semibold bg-royal-600 text-white shadow-md transition-all">
+              All Subjects
+            </button>
+            <button data-filter="1st" class="filter-tab px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-royal-300 dark:hover:border-royal-700 transition-all">
+              1st Semester
+            </button>
+            <button data-filter="2nd" class="filter-tab px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-royal-300 dark:hover:border-royal-700 transition-all">
+              2nd Semester
+            </button>
+          </div>
+
+          <!-- Search -->
+          <div class="relative flex-grow max-w-xl">
+            <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400"></i>
+            <input type="text" id="search-input" placeholder="Search subjects, topics, or tags..." class="w-full pl-12 pr-4 py-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-royal-500 focus:border-transparent transition-all">
+          </div>
+        </div>
+      </div>
+
+      <!-- Subjects Grid -->
+      <div id="subjects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cards will be injected by JavaScript -->
+      </div>
+
+      <!-- No Results -->
+      <div id="no-results" class="hidden text-center py-16">
+        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+          <i data-lucide="search-x" class="w-8 h-8 text-slate-400"></i>
+        </div>
+        <h3 class="text-xl font-semibold text-slate-700 dark:text-slate-200">No subjects found</h3>
+        <p class="text-slate-500 dark:text-slate-400 mt-2">Try adjusting your search or filter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="relative py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 animate-slide-up">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-royal-100 dark:bg-royal-900/40 text-royal-700 dark:text-royal-300 text-sm font-semibold mb-4">Capabilities</span>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-4">Skills & Tools</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-lg">A collection of minor and major skills I've developed along the way.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 animate-slide-up" style="animation-delay: 0.1s;">
+        <!-- Design & Multimedia -->
+        <div class="glass rounded-2xl p-6 sm:p-8 card-hover">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center">
+              <i data-lucide="palette" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-800 dark:text-white">Design & Multimedia</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Video Editing</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Graphic Design</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Figma</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">UI/UX Design</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Canva</span>
+          </div>
+        </div>
+
+        <!-- Web & Mobile Development -->
+        <div class="glass rounded-2xl p-6 sm:p-8 card-hover">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-royal-100 dark:bg-royal-900/30 text-royal-600 dark:text-royal-400 flex items-center justify-center">
+              <i data-lucide="code-2" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-800 dark:text-white">Web & Mobile Development</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">HTML/CSS</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Express</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Node.js</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">React Native</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Tailwind css</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">React</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">JavaScript</span>
+          </div>
+        </div>
+
+        <!-- Database & Blockchain -->
+        <div class="glass rounded-2xl p-6 sm:p-8 card-hover">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+              <i data-lucide="database" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-800 dark:text-white">Database & Blockchain</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">PostgreSQL</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Blockchain Integration</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Ethereum</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Firebase</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Smart Contracts</span>
+          </div>
+        </div>
+
+        <!-- Development Tools -->
+        <div class="glass rounded-2xl p-6 sm:p-8 card-hover">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 flex items-center justify-center">
+              <i data-lucide="wrench" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-800 dark:text-white">Development Tools</h3>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">VS Code</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Android Studio</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Truffle</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">Hardhat</span>
+            <span class="skill-pill px-4 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-medium text-slate-600 dark:text-slate-300">GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="relative py-20 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+      <div class="glass rounded-3xl p-8 sm:p-12 lg:p-16 text-center animate-slide-up">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-royal-100 dark:bg-royal-900/40 text-royal-700 dark:text-royal-300 text-sm font-semibold mb-4">Get in Touch</span>
+        <h2 class="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 dark:text-white mb-4">Let's Connect</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-lg mb-8 max-w-2xl mx-auto">Feel free to reach out for collaboration, academic inquiries, or just to say hello.</p>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10">
+          <a href="mailto:madronacristianli@gmail.com" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-royal-600 text-white font-semibold shadow-lg shadow-royal-600/25 hover:bg-royal-700 hover:shadow-royal-600/40 transition-all">
+            <i data-lucide="mail" class="w-5 h-5"></i>
+            <span>Send an Email</span>
+          </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="flex justify-center gap-4">
+          <a href="#" class="w-12 h-12 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-royal-600 hover:border-royal-300 dark:hover:border-royal-700 hover:-translate-y-1 transition-all" aria-label="Facebook">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-royal-600 hover:border-royal-300 dark:hover:border-royal-700 hover:-translate-y-1 transition-all" aria-label="Instagram">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-royal-600 hover:border-royal-300 dark:hover:border-royal-700 hover:-translate-y-1 transition-all" aria-label="GitHub">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-royal-600 hover:border-royal-300 dark:hover:border-royal-700 hover:-translate-y-1 transition-all" aria-label="LinkedIn">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="relative py-8 px-4 sm:px-6 lg:px-8 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-slate-500 dark:text-slate-400 text-sm">
+        &copy; 2025 - 2026 <span class="font-semibold text-slate-700 dark:text-slate-200">Cristian li G. Madrona</span>. All rights reserved.
+      </p>
+      <p class="text-slate-400 dark:text-slate-500 text-sm">BSIT - 3D Student</p>
+    </div>
+  </footer>
+
+  <!-- Project Modal -->
+  <div id="project-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+    <!-- Backdrop -->
+    <div id="modal-backdrop" class="absolute inset-0 bg-slate-900/60 dark:bg-black/70 backdrop-blur-sm transition-opacity opacity-0"></div>
+
+    <!-- Modal Content -->
+    <div class="absolute inset-0 flex items-center justify-center p-4 pointer-events-none">
+      <div id="modal-panel" class="pointer-events-auto w-full max-w-3xl max-h-[90vh] overflow-y-auto hide-scrollbar bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-200 dark:border-slate-700 transform scale-95 opacity-0 transition-all duration-300">
+        <!-- Modal Header -->
+        <div class="sticky top-0 z-10 flex items-center justify-between p-6 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-b border-slate-100 dark:border-slate-800">
+          <div class="flex items-center gap-3">
+            <div id="modal-icon" class="w-10 h-10 rounded-xl bg-royal-100 dark:bg-royal-900/40 text-royal-600 dark:text-royal-400 flex items-center justify-center">
+              <i data-lucide="folder" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <h3 id="modal-title" class="font-display text-xl sm:text-2xl font-bold text-slate-800 dark:text-white">Project Title</h3>
+              <p id="modal-semester" class="text-sm text-slate-500 dark:text-slate-400">Semester</p>
+            </div>
+          </div>
+          <button id="modal-close" class="p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500 dark:text-slate-400 transition-colors">
+            <i data-lucide="x" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-6 space-y-6">
+          <!-- Tags -->
+          <div id="modal-tags" class="flex flex-wrap gap-2"></div>
+
+          <!-- Description -->
+          <div>
+            <h4 class="font-display font-semibold text-slate-800 dark:text-white mb-2 flex items-center gap-2">
+              <i data-lucide="file-text" class="w-4 h-4 text-royal-600"></i>
+              Description
+            </h4>
+            <p id="modal-description" class="text-slate-600 dark:text-slate-300 leading-relaxed">Project description goes here.</p>
+          </div>
+
+          <!-- Survey Form Link -->
+          <div id="modal-form-link" class="hidden">
+            <h4 class="font-display font-semibold text-slate-800 dark:text-white mb-3 flex items-center gap-2">
+              <i data-lucide="clipboard-list" class="w-4 h-4 text-royal-600"></i>
+              Survey Form
+            </h4>
+            <a id="modal-form-url" href="#" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-royal-600 text-white text-sm font-semibold hover:bg-royal-700 transition-colors">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              <span>Open Google Form</span>
+            </a>
+          </div>
+
+          <!-- Research Document Link -->
+          <div id="modal-pdf-link" class="hidden">
+            <h4 class="font-display font-semibold text-slate-800 dark:text-white mb-3 flex items-center gap-2">
+              <i data-lucide="file-text" class="w-4 h-4 text-royal-600"></i>
+              Research Document
+            </h4>
+            <a id="modal-pdf-url" href="#" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 dark:bg-slate-700 text-white text-sm font-semibold hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors">
+              <i data-lucide="file-down" class="w-4 h-4"></i>
+              <span>View Research Paper (PDF)</span>
+            </a>
+          </div>
+
+          <!-- Project Presentation Link -->
+          <div id="modal-pptx-link" class="hidden">
+            <h4 class="font-display font-semibold text-slate-800 dark:text-white mb-3 flex items-center gap-2">
+              <i data-lucide="presentation" class="w-4 h-4 text-royal-600"></i>
+              Project Presentation
+            </h4>
+            <a id="modal-pptx-url" href="#" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-800 dark:bg-slate-700 text-white text-sm font-semibold hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors">
+              <i data-lucide="file-down" class="w-4 h-4"></i>
+              <span>Download Presentation (PPTX)</span>
+            </a>
+          </div>
+
+          <!-- Project Files / Activities Link -->
+          <div id="modal-drive-link" class="hidden">
+            <h4 class="font-display font-semibold text-slate-800 dark:text-white mb-3 flex items-center gap-2">
+              <i data-lucide="folder-open" class="w-4 h-4 text-royal-600"></i>
+              Project Files / Activities
+            </h4>
+            <div id="modal-drive-list" class="flex flex-wrap gap-3"></div>
+          </div>
+
+          <!-- Live Project Link -->
+          <div id="modal-live-link" class="hidden">
+            <h4 class="font-display font-semibold text-slate-800 dark:text-white mb-3 flex items-center gap-2">
+              <i data-lucide="globe" class="w-4 h-4 text-royal-600"></i>
+              Live Project
+            </h4>
+            <a id="modal-live-url" href="#" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-royal-600 text-white text-sm font-semibold hover:bg-royal-700 transition-colors">
+              <i data-lucide="external-link" class="w-4 h-4"></i>
+              <span>Open Live Project</span>
+            </a>
+          </div>
+
+          <!-- Tech Stack -->
+          <div>
+            <h4 class="font-display font-semibold text-slate-800 dark:text-white mb-3 flex items-center gap-2">
+              <i data-lucide="layers" class="w-4 h-4 text-royal-600"></i>
+              Tech Stack
+            </h4>
+            <div id="modal-stack" class="flex flex-wrap gap-2"></div>
+          </div>
+
+          <!-- Screenshots / Placeholder -->
+          <div>
+            <h4 class="font-display font-semibold text-slate-800 dark:text-white mb-3 flex items-center gap-2">
+              <i data-lucide="image" class="w-4 h-4 text-royal-600"></i>
+              Screenshots / Gallery
+            </h4>
+            <div id="modal-gallery" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="aspect-video rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-600 flex flex-col items-center justify-center text-slate-400">
+                <i data-lucide="image-plus" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm">Screenshot placeholder</span>
+              </div>
+              <div class="aspect-video rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-600 flex flex-col items-center justify-center text-slate-400">
+                <i data-lucide="image-plus" class="w-8 h-8 mb-2"></i>
+                <span class="text-sm">Screenshot placeholder</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Subject data
+    const subjects = [
+      {
+        id: 1,
+        title: 'Networking 2',
+        semester: '1st',
+        icon: 'network',
+        tags: ['Networking', 'Infrastructure', 'Configuration'],
+        badge: 'Networking',
+        description: 'Advanced networking concepts including LAN/WAN configuration, network security fundamentals, routing protocols, and practical network administration.',
+        stack: ['Cisco Packet Tracer', 'TCP/IP', 'Subnetting', 'VLAN'],
+        details: 'This subject covers the design, implementation, and management of enterprise networks. Projects include configuring routers and switches, implementing VLANs, and troubleshooting network connectivity issues.',
+        screenshots: [
+          { src: 'Netacad%20Cert.png', alt: 'Cisco Netacad Certificate' }
+        ],
+        driveLinks: [
+          { label: 'Case Study', url: 'https://drive.google.com/file/d/1YyCBT5VkImcn-q3bzwaJGvANDc0bDZov/view?usp=drive_link' },
+          { label: 'Activity 1', url: 'https://drive.google.com/drive/folders/1HALG0lighVbvO_ngzVd22NhxoO_8qj0M?usp=drive_link' },
+          { label: 'Activity 2', url: 'https://drive.google.com/drive/folders/1yUjGILd2Roz-3ALkVNnL8HieDPitwhYx?usp=drive_link' },
+          { label: 'Activity 3', url: 'https://drive.google.com/file/d/1WnKBb9b2MJOkvmTkxdeiiesJfD9FoaWM/view?usp=drive_link' },
+          { label: 'Case Study Packet Tracer', url: 'Case_Study_Networking_PacketTracer.pkt' },
+          { label: 'Finals Skills Assessment', url: 'Networking%202%20Finals%20Examination%20Skills%20Assessment.pkt' },
+          { label: 'Etherchannel Lab', url: 'Labad%2CMadrona%2CAcido_6.4.2_Implement_Etherchannel.pkt' }
+        ]
+      },
+      {
+        id: 2,
+        title: 'Platform Technologies',
+        semester: '1st',
+        icon: 'server',
+        tags: ['Operating Systems', 'Virtualization', 'Cloud'],
+        badge: 'Platform',
+        description: 'Study of operating systems, server platforms, virtualization technologies, and cloud computing foundations, including Arduino-based activities.',
+        stack: ['Linux', 'Windows Server', 'VMware', 'AWS Basics', 'Arduino'],
+        details: 'Explored different platform technologies including OS installation, server configuration, virtualization, and deployment strategies for modern applications. Completed multiple Arduino programming activities demonstrating hardware-software integration.',
+        screenshots: [
+          { src: 'Ards1.jpg', alt: 'Arduino Activity Proof 1' },
+          { src: 'Ards2.jpg', alt: 'Arduino Activity Proof 2' }
+        ],
+        driveLinks: [
+          { label: 'Arduino Activity 1', url: 'Arduino_activity1.ino' },
+          { label: 'Arduino Activity 2', url: 'Arduino_activity2.ino' },
+          { label: 'Arduino Activity 3', url: 'Arduino_activity3.ino' },
+          { label: 'Arduino Activity 4', url: 'Arduin0_activity4.ino' },
+          { label: 'Arduino Activity 5', url: 'Arduino_activity5.ino' }
+        ]
+      },
+      {
+        id: 3,
+        title: 'Quantitative Methods',
+        semester: '1st',
+        icon: 'bar-chart-3',
+        tags: ['Analytics', 'Statistics', 'Research'],
+        badge: 'Analytics',
+        description: 'We are BSIT3D students from the Institute of Computing conducting a research titled "The Relationship Between Device Accessibility and Cyberloafing Behavior Among IC Students".',
+        stack: ['Excel', 'SPSS', 'Statistical Analysis', 'Data Interpretation'],
+        details: 'We are BSIT3D students from the Institute of Computing, and we are currently conducting a research titled "The Relationship Between Device Accessibility and Cyberloafing Behavior Among IC Students." This study aims to explore how students\' access to digital devices influences them to engage in non-academic online activities while completing academic tasks.',
+        screenshots: [
+          { src: '../../../Documents/Portfoliochan/Research.jpg', alt: 'BSIT3D Group Photo - Research Grading Event' }
+        ],
+        formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSf6xqU0cRgpIuPT70B9-mp5zQCn0W7dvMMs-i5nS5TFVKLIbQ/viewform?usp=dialog',
+        pdfUrl: 'The-Relationship-between-Device-Accessibility-and-Cyberloafing-Behavior-among-IC-Students.pdf'
+      },
+      {
+        id: 4,
+        title: 'Information Assurance and Security 1',
+        semester: '2nd',
+        icon: 'shield-check',
+        tags: ['Cybersecurity', 'Ethical Hacking', 'Risk Management'],
+        badge: 'Cybersecurity',
+        description: 'Fundamentals of information security, risk management, threat analysis, and defensive security practices, including our final project documentation and presentation.',
+        stack: ['Kali Linux', 'Wireshark', 'Nmap', 'Security Frameworks'],
+        details: 'Covered core security principles, vulnerability assessment, penetration testing basics, and implementing security controls to protect information assets. Completed a final project with documentation and video presentation showcasing security concepts and practices.',
+        screenshots: [
+          { src: 'Passwas.png', alt: 'Information Assurance and Security Project' }
+        ],
+        pdfUrl: 'Final_Project_Madrona%20(1).pdf',
+        driveLinks: [
+          { label: 'Project Files', url: 'https://drive.google.com/drive/folders/1ibmMlcTGwW3Gqq13KRvBFB57yC3NyaDA?usp=drive_link' },
+          { label: 'Finals Video Presentation', url: 'https://drive.google.com/drive/folders/11I6E_k2cKMF4MYL0ALMlVtW3hfxQ31XH?usp=sharing' }
+        ],
+        liveUrl: 'https://acedosystem.onrender.com/'
+      },
+      {
+        id: 5,
+        title: 'Capstone Project 1',
+        semester: '2nd',
+        icon: 'target',
+        tags: ['Research & Dev', 'Project Management', 'Proposal'],
+        badge: 'Research & Dev',
+        description: 'First phase of the capstone project involving proposal development, feasibility study, and system planning.',
+        stack: ['Research Methods', 'System Analysis', 'Project Planning', 'Documentation'],
+        details: 'Developed the initial capstone proposal including problem statement, literature review, methodology, and system design for the proposed IT solution.',
+        pdfUrl: 'Terrava%20Chapter%201-2%20Final.pdf',
+        pptxUrl: 'Terrava%20Present.pptx',
+        screenshots: [
+          { src: 'Login%20UI.png', alt: 'Login UI' },
+          { src: 'seller%20listings%20conf.png', alt: 'Seller Listings Confirmation' },
+          { src: 'seller%20payment%20verify.png', alt: 'Seller Payment Verification' },
+          { src: 'admin%20UI.png', alt: 'Admin UI' },
+          { src: 'buyer%20browse.png', alt: 'Buyer Browse' },
+          { src: 'buyer%20land%20listings.png', alt: 'Buyer Land Listings' }
+        ]
+      },
+      {
+        id: 6,
+        title: 'Human Computer Interaction 1',
+        semester: '2nd',
+        icon: 'monitor-smartphone',
+        tags: ['UI/UX', 'Usability', 'Design'],
+        badge: 'UI/UX',
+        description: 'Designed the Cleanswift startup branding materials and promotional website including brochure, poster, stand, and promotional video for our startup defense.',
+        stack: ['Figma', 'Prototyping', 'User Research', 'Usability Testing'],
+        details: 'Learned to design user-friendly interfaces through wireframing, prototyping, and usability evaluation methods. Applied HCI principles in creating the Cleanswift startup branding materials including brochure front and back layouts, promotional poster, stand display, promotional video, startup defense documentation, and a live promotional website.',
+        driveUrl: 'https://drive.google.com/drive/folders/11DskTMtDV1wFNryANx7lofqDmb3x5TGH?usp=drive_link',
+        liveUrl: 'https://cleanswift-promo.netlify.app/',
+        screenshots: [
+          { src: 'Cleanswift%20P1.png', alt: 'Cleanswift Brochure Front' },
+          { src: 'Cleanswift%20P2.png', alt: 'Cleanswift Brochure Back' },
+          { src: 'Cleanswift%20Promotional%20Video.mp4', alt: 'Cleanswift Promotional Video' },
+          { src: 'Stand.JPG', alt: 'Cleanswift Stand Display' },
+          { src: 'Cleanswift%20Poster.png', alt: 'Cleanswift Promotional Poster' },
+          { src: 'Startup%20def%202.jpg', alt: 'Cleanswift Startup Defense Group Photo' }
+        ]
+      },
+      {
+        id: 7,
+        title: 'Technopreneurship',
+        semester: '2nd',
+        icon: 'lightbulb',
+        tags: ['Entrepreneurship', 'Business', 'Innovation'],
+        badge: 'Business',
+        description: 'Completed the Wadhwani technopreneurship program focused on building technology-based business ventures and startup fundamentals, including our go-to-market plan presentation.',
+        stack: ['Business Planning', 'Pitch Decks', 'Market Research', 'Lean Canvas'],
+        details: 'Explored how to transform technology ideas into viable business opportunities through business model development, market validation, and pitching. Earned a Wadhwani certificate upon completion of the subject and participated in the first startup defense with our team. Prepared a strategic go-to-market plan presentation for our startup.',
+        screenshots: [
+          { src: 'Wadhwani%20cert.png', alt: 'Wadhwani Technopreneurship Certificate' },
+          { src: 'Startup%20def.jpg', alt: 'First Startup Defense Group Photo' }
+        ],
+        pdfUrl: 'Orange%20Black%20Gradient%20Strategic%20Go-to-Market%20Plan%20Presentation.pdf',
+        driveUrl: 'https://drive.google.com/drive/folders/11DskTMtDV1wFNryANx7lofqDmb3x5TGH?usp=drive_link'
+      },
+      {
+        id: 8,
+        title: 'Data Mining',
+        semester: '2nd',
+        icon: 'database',
+        tags: ['Analytics', 'Machine Learning', 'Big Data'],
+        badge: 'Analytics',
+        description: 'Applied data mining techniques in a mobile app project, including a final video presentation and project documentation.',
+        stack: ['Python', 'Pandas', 'Scikit-learn', 'Data Visualization'],
+        details: 'Applied data preprocessing, classification, clustering, and association rule mining techniques to extract meaningful insights from structured datasets. Developed a mobile app system showcasing data mining concepts, complete with a final video presentation and project presentation file.',
+        screenshots: [
+          { src: 'babanana.png', alt: 'Mobile App System Interface 1' },
+          { src: 'babanana1.png', alt: 'Mobile App System Interface 2' },
+          { src: 'babanana2.png', alt: 'Mobile App System Interface 3' },
+          { src: 'babanana3.png', alt: 'Mobile App System Interface 4' }
+        ],
+        driveLinks: [
+          { label: 'Final Video Presentation', url: 'https://drive.google.com/file/d/1SrwrLdNnNiRpqdR-bwBJAWdKK5Oa-Cqm/view?usp=sharing' }
+        ],
+        pptxUrl: 'Application_of_Data_Mining_Techniques_Dark.pptx'
+      },
+      {
+        id: 10,
+        title: 'Integrative Programming and Technologies 1',
+        semester: '1st',
+        icon: 'code-2',
+        tags: ['Programming', 'Mobile Development', 'Integration'],
+        badge: 'Development',
+        description: 'Developed a final mobile application project integrating frontend, backend, and database technologies for real-world use cases.',
+        stack: ['Java', 'Android Studio', 'REST API', 'Database Integration'],
+        details: 'Focused on integrating programming concepts and technologies to build functional applications. Completed a final mobile app project demonstrating UI/UX design, data handling, and API integration.',
+        screenshots: [
+          { src: 'IT312.png', alt: 'Integrative Programming Final Project' }
+        ],
+        pdfUrl: 'Final%20Mobile%20App%20Project(IT312).pdf',
+        driveLinks: [
+          { label: 'Project Files', url: 'https://drive.google.com/drive/folders/1qDLROL758qdDF02xK2rv_WDwadHpcmb3?usp=drive_link' },
+          { label: 'Activity Files', url: 'https://drive.google.com/drive/folders/1lQqqry5sFZNxO01fyWq6HELazhUu9X9z?usp=drive_link' }
+        ]
+      }
+    ];
+
+    // DOM Elements
+    const grid = document.getElementById('subjects-grid');
+    const searchInput = document.getElementById('search-input');
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const noResults = document.getElementById('no-results');
+    const modal = document.getElementById('project-modal');
+    const modalBackdrop = document.getElementById('modal-backdrop');
+    const modalPanel = document.getElementById('modal-panel');
+    const modalClose = document.getElementById('modal-close');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const themeToggle = document.getElementById('theme-toggle');
+    const navbar = document.getElementById('navbar');
+
+    // Current filters
+    let activeSemester = 'all';
+    let searchQuery = '';
+
+    // Render subject cards
+    function renderSubjects() {
+      const filtered = subjects.filter(subject => {
+        const matchesSemester = activeSemester === 'all' || subject.semester === activeSemester;
+        const searchLower = searchQuery.toLowerCase();
+        const matchesSearch =
+          subject.title.toLowerCase().includes(searchLower) ||
+          subject.description.toLowerCase().includes(searchLower) ||
+          subject.tags.some(tag => tag.toLowerCase().includes(searchLower)) ||
+          subject.badge.toLowerCase().includes(searchLower);
+        return matchesSemester && matchesSearch;
+      });
+
+      grid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        noResults.classList.remove('hidden');
+      } else {
+        noResults.classList.add('hidden');
+        filtered.forEach((subject, index) => {
+          const card = document.createElement('div');
+          card.className = 'subject-card group glass rounded-2xl p-6 card-hover cursor-pointer border border-slate-200/60 dark:border-slate-700/60 animate-slide-up';
+          card.style.animationDelay = `${index * 0.05}s`;
+          card.setAttribute('data-semester', subject.semester);
+          card.setAttribute('data-id', subject.id);
+
+          card.innerHTML = `
+            <div class="flex items-start justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-royal-100 dark:bg-royal-900/30 text-royal-600 dark:text-royal-400 flex items-center justify-center group-hover:bg-royal-600 group-hover:text-white transition-colors">
+                <i data-lucide="${subject.icon}" class="w-6 h-6"></i>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-semibold border border-slate-200 dark:border-slate-700">
+                ${subject.semester} Sem
+              </span>
+            </div>
+            <h3 class="font-display text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-royal-600 dark:group-hover:text-royal-400 transition-colors">${subject.title}</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4 line-clamp-2">${subject.description}</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              <span class="px-2.5 py-1 rounded-lg bg-royal-50 dark:bg-royal-900/30 text-royal-700 dark:text-royal-300 text-xs font-semibold border border-royal-100 dark:border-royal-800">${subject.badge}</span>
+              ${subject.tags.slice(0, 2).map(tag => `<span class="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs font-medium border border-slate-200 dark:border-slate-700">${tag}</span>`).join('')}
+            </div>
+            <div class="flex items-center text-royal-600 dark:text-royal-400 text-sm font-semibold">
+              <span>View Details</span>
+              <i data-lucide="arrow-right" class="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          `;
+
+          card.addEventListener('click', () => openModal(subject));
+          grid.appendChild(card);
+        });
+
+        // Re-initialize icons for new cards
+        lucide.createIcons();
+      }
+    }
+
+    // Filter tabs
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        filterTabs.forEach(t => {
+          t.classList.remove('active', 'bg-royal-600', 'text-white', 'shadow-md');
+          t.classList.add('text-slate-600', 'dark:text-slate-300', 'bg-white', 'dark:bg-slate-800', 'border', 'border-slate-200', 'dark:border-slate-700');
+        });
+        tab.classList.add('active', 'bg-royal-600', 'text-white', 'shadow-md');
+        tab.classList.remove('text-slate-600', 'dark:text-slate-300', 'bg-white', 'dark:bg-slate-800', 'border', 'border-slate-200', 'dark:border-slate-700');
+        activeSemester = tab.dataset.filter;
+        renderSubjects();
+      });
+    });
+
+    // Search input
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderSubjects();
+    });
+
+    // Modal functions
+    function openModal(subject) {
+      document.getElementById('modal-title').textContent = subject.title;
+      document.getElementById('modal-semester').textContent = `${subject.semester} Semester | Academic Year 2025-2026`;
+      document.getElementById('modal-description').textContent = subject.details;
+
+      // Icon
+      const iconContainer = document.getElementById('modal-icon');
+      iconContainer.innerHTML = `<i data-lucide="${subject.icon}" class="w-5 h-5"></i>`;
+
+      // Tags
+      const tagsContainer = document.getElementById('modal-tags');
+      tagsContainer.innerHTML = subject.tags.map(tag =>
+        `<span class="px-3 py-1.5 rounded-lg bg-royal-50 dark:bg-royal-900/30 text-royal-700 dark:text-royal-300 text-sm font-semibold border border-royal-100 dark:border-royal-800">${tag}</span>`
+      ).join('');
+
+      // Stack
+      const stackContainer = document.getElementById('modal-stack');
+      stackContainer.innerHTML = subject.stack.map(tech =>
+        `<span class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium border border-slate-200 dark:border-slate-700">${tech}</span>`
+      ).join('');
+
+      // Survey Form Link
+      const formLinkContainer = document.getElementById('modal-form-link');
+      const formUrlAnchor = document.getElementById('modal-form-url');
+      if (subject.formUrl) {
+        formLinkContainer.classList.remove('hidden');
+        formUrlAnchor.href = subject.formUrl;
+      } else {
+        formLinkContainer.classList.add('hidden');
+      }
+
+      // Research Document Link
+      const pdfLinkContainer = document.getElementById('modal-pdf-link');
+      const pdfUrlAnchor = document.getElementById('modal-pdf-url');
+      if (subject.pdfUrl) {
+        pdfLinkContainer.classList.remove('hidden');
+        pdfUrlAnchor.href = subject.pdfUrl;
+      } else {
+        pdfLinkContainer.classList.add('hidden');
+      }
+
+      // Project Presentation Link
+      const pptxLinkContainer = document.getElementById('modal-pptx-link');
+      const pptxUrlAnchor = document.getElementById('modal-pptx-url');
+      if (subject.pptxUrl) {
+        pptxLinkContainer.classList.remove('hidden');
+        pptxUrlAnchor.href = subject.pptxUrl;
+      } else {
+        pptxLinkContainer.classList.add('hidden');
+      }
+
+      // Live Project Link
+      const liveLinkContainer = document.getElementById('modal-live-link');
+      const liveUrlAnchor = document.getElementById('modal-live-url');
+      if (subject.liveUrl) {
+        liveLinkContainer.classList.remove('hidden');
+        liveUrlAnchor.href = subject.liveUrl;
+      } else {
+        liveLinkContainer.classList.add('hidden');
+      }
+
+      // Project Files / Activities Link
+      const driveLinkContainer = document.getElementById('modal-drive-link');
+      const driveListContainer = document.getElementById('modal-drive-list');
+      if (subject.driveLinks && subject.driveLinks.length > 0) {
+        driveLinkContainer.classList.remove('hidden');
+        driveListContainer.innerHTML = subject.driveLinks.map(link =>
+          `<a href="${link.url}" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors">
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+            <span>${link.label}</span>
+          </a>`
+        ).join('');
+      } else if (subject.driveUrl) {
+        driveLinkContainer.classList.remove('hidden');
+        driveListContainer.innerHTML = `<a href="${subject.driveUrl}" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 text-white text-sm font-semibold hover:bg-emerald-700 transition-colors">
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+          <span>Open Google Drive Folder</span>
+        </a>`;
+      } else {
+        driveLinkContainer.classList.add('hidden');
+      }
+
+      // Gallery
+      const galleryContainer = document.getElementById('modal-gallery');
+      if (subject.screenshots && subject.screenshots.length > 0) {
+        galleryContainer.innerHTML = subject.screenshots.map(item => {
+          const isVideo = /\.(mp4|webm|mov)$/i.test(item.src);
+          if (isVideo) {
+            return `<div class="aspect-video rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 flex items-center justify-center">
+              <video controls class="w-full h-full object-contain">
+                <source src="${item.src}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>`;
+          }
+          return `<a href="${item.src}" target="_blank" class="aspect-video block rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:opacity-90 transition-opacity flex items-center justify-center">
+            <img src="${item.src}" alt="${item.alt}" class="w-full h-full object-contain">
+          </a>`;
+        }).join('');
+      } else {
+        galleryContainer.innerHTML = `
+          <div class="aspect-video rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-600 flex flex-col items-center justify-center text-slate-400">
+            <i data-lucide="image-plus" class="w-8 h-8 mb-2"></i>
+            <span class="text-sm">Screenshot placeholder</span>
+          </div>
+          <div class="aspect-video rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-dashed border-slate-300 dark:border-slate-600 flex flex-col items-center justify-center text-slate-400">
+            <i data-lucide="image-plus" class="w-8 h-8 mb-2"></i>
+            <span class="text-sm">Screenshot placeholder</span>
+          </div>
+        `;
+      }
+
+      modal.classList.remove('hidden');
+      // Small delay for animation
+      requestAnimationFrame(() => {
+        modalBackdrop.classList.remove('opacity-0');
+        modalPanel.classList.remove('scale-95', 'opacity-0');
+        modalPanel.classList.add('scale-100', 'opacity-100');
+      });
+      lucide.createIcons();
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modalBackdrop.classList.add('opacity-0');
+      modalPanel.classList.remove('scale-100', 'opacity-100');
+      modalPanel.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+      }, 300);
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+
+    // Mobile menu
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuBtn.querySelector('i');
+      if (mobileMenu.classList.contains('hidden')) {
+        icon.setAttribute('data-lucide', 'menu');
+      } else {
+        icon.setAttribute('data-lucide', 'x');
+      }
+      lucide.createIcons();
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.setAttribute('data-lucide', 'menu');
+        lucide.createIcons();
+      });
+    });
+
+    // Dark mode toggle
+    function initTheme() {
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+
+    themeToggle.addEventListener('click', () => {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      }
+    });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('glass', 'shadow-sm');
+        navbar.classList.remove('border-transparent');
+      } else {
+        navbar.classList.remove('glass', 'shadow-sm');
+      }
+    });
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Initialize
+    initTheme();
+    renderSubjects();
+  </script>
+</body>
+</html>
